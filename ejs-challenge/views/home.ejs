@@ -1,0 +1,28 @@
+<%- include("partials/header"); -%>
+<!-- Header section included from the "partials/header" partial -->
+
+<h1>Home</h1>
+<!-- Displaying the heading for the home page -->
+
+<p>
+    <%= startingContant %>
+</p>
+<!-- Displaying the static content from "startingContant" variable -->
+
+<% posts.forEach(function(post) { %>
+<!-- Loop through each post in the "posts" array -->
+
+    <h1><%= post.title %></h1>
+    <!-- Display the title of the blog post -->
+
+    <p><%= post.content.substring(0, 100) + "......" %>
+        <!-- Display the truncated content of the blog post -->
+        <a href="/posts/<%= post.title %>">Read More</a>
+        <!-- Link to the full blog post with a dynamic URL using post title -->
+    </p>
+
+<% }); %>
+<!-- End of the loop -->
+
+<%- include("partials/footer"); -%>
+<!-- Footer section included from the "partials/footer" partial -->
